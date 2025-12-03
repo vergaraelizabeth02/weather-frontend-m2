@@ -6,6 +6,16 @@ h2 {
 }
 
 .carousel img {
-    height: 300px;
+    height: 250px;
     object-fit: cover;
+}
+
+i {
+    font-size: 20px;
+    color: rgb(153, 153, 161);
+    margin-right: 10px;
+}
+
+footer {
+    background:linear-gradient(to top, #006eff, #f6f8f9 ) ;
 }

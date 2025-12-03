@@ -4,10 +4,9 @@ Desarrollar la primera versión (MVP) del frontend de una aplicación de clima, 
 **Bootstrap** para estilos y **diseño responsivo**, y **JavaScript** básico para la interacción. El 
 trabajo se versiona en **Git/GitHub** e incluye un **README** descriptivo. 
 
----
+--
 
 ## Aplicacion del tiempo
-Esta aplicación muestra el tiemo de diez loclidades de nuestro pais.
 al hacer click en la localidad, te mostrará el detalle del tiempo actual y el de toda la semana.
 
 ## Requisitos Funcionales
