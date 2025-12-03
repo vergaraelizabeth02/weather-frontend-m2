@@ -13,7 +13,7 @@
     />
 
     <!-- Mi CSS -->
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="./assets/css/detalle.css" />
 
     <!-- Bootstrap Icons -->
     <link
@@ -33,9 +33,9 @@
     <script defer src="./assets/js/script.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
       <div class="container">
-        <a class="navbar-brand" href="./index.htm">El Tiempo</a>
+        <a class="navbar-brand" href="#">El Tiempo</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -53,36 +53,74 @@
               >Inicio</a
             >
             <a class="nav-link" href="./detalle.html">Detalle</a>
-            <a class="nav-link" href="#">Acerca de otra ciudades</a>
           </div>
         </div>
       </div>
     </nav>
     <main class="container my-4">
+      <h2 class="text-center">EL TIEMPO EN ARICA</h2>
+      <!-- carrucel imagenes de la ciudad start-->
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner my-4">
+          <div class="carousel-item active">
+            <img
+              src="./assets/img/arica 1.jpg"
+              class="d-block w-100"
+              alt="arica"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./assets/img/ARICA 3.jpg"
+              class="d-block w-100"
+              alt="arica"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+       <!-- carrucel imagenes de la ciudad end-->
       <section class="row">
         <div class="col col-lg-8">
-          <h1>El Tiempo en:</h1>
+            <h2 class="my-3">El timepo hoy</h2>
           <!-- Card horizontal start-->
           <div class="card mb-3" style="max-width: 540px">
             <div class="row g-0">
-              <div class="col-md-4 d-flex justify-content-center align-items-center">
-                <i
-                  class="bi bi-brightness-high-fill"
-                  style="font-size: 90px"
-                ></i>
+              <div
+                class="col-md-4 d-flex justify-content-center align-items-center"
+              >
+                <i class="bi bi-cloud-sun" style="font-size: 100px; color:rgb(153, 153, 161);"></i>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h2 class="card-title">Valdivia</h2>
+                  <h2 class="card-title">ARICA</h2>
+                    <P>12:50 | Miércoles</P>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Soleado</li>
-                    <li class="list-group-item">Temperatura: 22°c</li>
-                    <li class="list-group-item">Humedad: 10%</li>
+                    <li class="list-group-item">Nubes y claros</li>
+                    <li class="list-group-item">Temperatura: 20°c</li>
+                    <li class="list-group-item">Sensación termica: 20°C</li>
                     <li class="list-group-item">Viento 15 km/h</li>
                   </ul>
                   <p class="card-text">
                     <small class="text-body-secondary"
-                      >Ultima actualizacion hace 3 minutos</small
+                      >Ultima actualización hace 3 minutos</small
                     >
                   </p>
                 </div>
@@ -92,17 +130,21 @@
           <!-- Card horizontal end-->
         </div>
         <div class="col col-lg-4">
-          <h3>Pronostico semanal</h3>
+          <h2 class="my-3">Pronostico semanal</h2>
 
           <!-- Card Pronostico -->
           <div class="card">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><i class="bi bi-brightness-high-fill mb-3"></i>Lunes 23°C</li>
+              <li class="list-group-item">
+                <i class="bi bi-brightness-high-fill"></i>Lunes 23°C
+              </li>
               <li class="list-group-item">Martes 20°C</li>
               <li class="list-group-item">Miércoles 18°C</li>
               <li class="list-group-item">Jueves 19°C</li>
               <li class="list-group-item">Viernes 17°C</li>
-              <li class="list-group-item"><i class="bi bi-cloud-fill"></i>Sábado 20°C</li>
+              <li class="list-group-item">
+                <i class="bi bi-cloud-fill"></i>Sábado 20°C
+              </li>
               <li class="list-group-item">Domingo 18°C</li>
             </ul>
           </div>
