@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+# Proyeco de portafolio modulo 2
+=======
 # Proyeco de portafolio modulo 2 - Elizabeth Vergara
+>>>>>>> a620b6f1de1e768f828cdf3c158d0af8c6f0cb03
 
 1. Propósito
    Desarrollar la primera versión (MVP) del frontend de una aplicación de clima, aplicando **HTML5 semántico**,
@@ -34,3 +38,38 @@ links.forEach(function (link) {
   }
 });
 ```
+<<<<<<< HEAD
+
+## Segunda etapa del proyecto
+
+- Se aplicó Sass intregrando la estructura básica de carpetas con sus archivos correspondientes.
+
+1. Abstracts
+
+- \_mixins.scss
+- \_variables.scss
+
+2. Base
+
+- \_base.scss
+
+3. Components
+
+- \_card.scss
+- \_carousel.scss
+
+4. layout
+
+- \_footer.scss
+- \_main.scss
+- \_navbar.sccs
+
+5. Pages
+6. Themes
+7. Vendors
+
+## GitHub enlace
+
+https://github.com/vergaraelizabeth02/weather-frontend-m2.git
+=======
+>>>>>>> a620b6f1de1e768f828cdf3c158d0af8c6f0cb03

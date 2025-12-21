@@ -1,0 +1,12 @@
+@use '../abstracts/variables';
+
+
+body {
+    background: variables.$weather-bg;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
