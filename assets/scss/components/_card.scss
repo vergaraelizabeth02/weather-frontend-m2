@@ -1,9 +1,22 @@
 @use '../abstracts/variables';
 
 .card {
+    border-color: variables.$weather-cyan;
     &__icon {
         font-size: 50px;
         color: variables.$weather-cyan;
     }
+    &__icon-h {
+        font-size: 100px;
+        color:variables.$weather-cyan;
+        margin-right: 10px;
+    }
+
+    &__icon-vertical {
+        font-size: 20px;
+        color:variables.$weather-cyan;
+        margin-right: 10px;
+    }
 }
+
 

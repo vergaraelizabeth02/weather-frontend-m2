@@ -5,10 +5,16 @@
 
 // base
 @use './base/base';
+
 // layout
+@use './layout/footer';
+@use './layout/navbar';
+@use './layout/main';
+
 
 // components
 @use './components/card';
+@use './components/carousel';
 
 // pages
 
