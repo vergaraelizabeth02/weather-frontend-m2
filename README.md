@@ -27,31 +27,42 @@ cardLinks.forEach(function (link) {
 
 ```js
 links.forEach(function (link) {
-    if (link.href == window.location.href) {
-    link.classList.add('active');
-    } else {
-        link.classList.remove('active');
-    }
+  if (link.href == window.location.href) {
+    link.classList.add("active");
+  } else {
+    link.classList.remove("active");
+  }
 });
-
-## segunda Etapa del proyecto
-se Aplico Sass, intregrando la estructura basica de carpetas con sus archivos correspondientes
-1. Abstracts
-  - _mixins.scss
-  - _variables.scss
-2.- Base
-  - _base.scss
-3.- Components
-  - _card.scss
-  - _carousel.scss
-4.- layout
-  - _footer.scss
-  - _main.scss
-  - _navbar.sccs
-5.- Pages
-6.- Themes
-7.- Vendors
-
-##GitHub enlace
-https://github.com/vergaraelizabeth02/weather-frontend-m2.git
 ```
+
+## Segunda etapa del proyecto
+
+- Se aplicó Sass intregrando la estructura básica de carpetas con sus archivos correspondientes.
+
+1. Abstracts
+
+- \_mixins.scss
+- \_variables.scss
+
+2. Base
+
+- \_base.scss
+
+3. Components
+
+- \_card.scss
+- \_carousel.scss
+
+4. layout
+
+- \_footer.scss
+- \_main.scss
+- \_navbar.sccs
+
+5. Pages
+6. Themes
+7. Vendors
+
+## GitHub enlace
+
+https://github.com/vergaraelizabeth02/weather-frontend-m2.git
