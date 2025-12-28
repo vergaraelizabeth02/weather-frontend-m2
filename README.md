@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 # Proyeco de portafolio modulo 2
+
 =======
+
 # Proyeco de portafolio modulo 2 - Elizabeth Vergara
->>>>>>> a620b6f1de1e768f828cdf3c158d0af8c6f0cb03
 
 1. Propósito
    Desarrollar la primera versión (MVP) del frontend de una aplicación de clima, aplicando **HTML5 semántico**,
@@ -38,7 +38,6 @@ links.forEach(function (link) {
   }
 });
 ```
-<<<<<<< HEAD
 
 ## Segunda etapa del proyecto
 
@@ -71,5 +70,3 @@ links.forEach(function (link) {
 ## GitHub enlace
 
 https://github.com/vergaraelizabeth02/weather-frontend-m2.git
-=======
->>>>>>> a620b6f1de1e768f828cdf3c158d0af8c6f0cb03
