@@ -94,9 +94,62 @@ ciudadActual.pronosticoSemanal.forEach((dia) => {
               <li class="list-group-item">
                 <i class="card__icon_vertical bi ${ICONOS[dia.estado]}"></i>${
     dia.dia
-  }:${dia.max}°C
+  }: ${dia.max}°C
               </li>
   
   `;
   pronosticoContainer.innerHTML += content;
 });
+
+// Estadisticas de la semana (mínimas y máximas)
+// 3. Estadísticas semanales y reunir datos
+const minTempContainer = document.getElementById("minTemp");
+const maxTempContainer = document.getElementById("maxTemp");
+const avTempContainer = document.getElementById("avTemp");
+
+// Funcion para formatear numero decimales, que envez de punto tenga coma
+const FormatFloatNumber = (num) => {
+  return num.toLocaleString("es-CL");
+};
+
+// 5.2.1 Funcion para calcular estadísticas, devolverá un objeto con los resultados.
+const estadisticasPronostico = () => {
+  // Obtener temperatura minima semanal
+  const temperaturasMinimas = ciudadActual.pronosticoSemanal.map(
+    (dia) => dia.min
+  );
+  // console.log(temperaturasMinimas);
+  const minimaSemanal = Math.min(...temperaturasMinimas);
+  console.log(minimaSemanal);
+
+  //5.2.2 Obtener temperatura máxima semanal
+  const temperaturasMaximas = ciudadActual.pronosticoSemanal.map(
+    (dia) => dia.max
+  );
+  const maximaSemanal = Math.max(...temperaturasMaximas);
+  console.log(maximaSemanal);
+
+  // 5.2.3 Calcular promedio de temeraturas semanal
+  const sumaTemperaturasMaximas = temperaturasMaximas.reduce(
+    (acumulador, actual) => acumulador + actual,
+    0
+  );
+
+  // Promedio = sumaElementos / cantidadElementos
+  let promedioSemanal = parseFloat(
+    (sumaTemperaturasMaximas / temperaturasMaximas.length).toFixed(2)
+  );
+
+  // TODO: Crear mensaje reseumen de las estadisticas: cantidad de dias por tipo de clima, resumen textual (semana mayormente Soleada, nublada, etc)
+
+  return {
+    minimaSemanal,
+    maximaSemanal,
+    promedioSemanal: FormatFloatNumber(promedioSemanal),
+  };
+};
+
+const estadisticas = estadisticasPronostico();
+minTempContainer.textContent = estadisticas.minimaSemanal;
+maxTempContainer.textContent = estadisticas.maximaSemanal;
+avTempContainer.textContent = estadisticas.promedioSemanal;
