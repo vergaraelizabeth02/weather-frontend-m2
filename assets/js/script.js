@@ -46,7 +46,7 @@ const mostrarLugares = () => {
               <h5 class="card-title">${lugar.nombre}</h5>
               <hr />
               <p class="card-text">${lugar.estadoActual}</p>
-              <p class="card-text">${lugar.temperaturaActual}°C</p>
+              <p class="card-text">${lugar.tempActual}°C</p>
             </div>
             <div class="card-body">
               <a class="card-link" href="/detalle.html?id=${
