@@ -61,7 +61,7 @@ const mostrarLugar = () => {
                       ciudadActual.estadoActual
                     }</li>
                     <li class="list-group-item">Temperatura: ${
-                      ciudadActual.temperaturaActual
+                      ciudadActual.tempActual
                     }°C</li> 
                   </ul>
                   <p class="card-text">
