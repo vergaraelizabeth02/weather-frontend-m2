@@ -40,7 +40,7 @@ const mostrarLugares = () => {
   lugares.forEach((lugar) => {
     const tarjeta = `
     <div class="col">
-          <div class="card text-center">
+          <div class="card h-100 text-center">
             <div class="card-body">
               <i class="bi ${ICONOS[lugar.estadoActual]} card__icon"></i>
               <h5 class="card-title">${lugar.nombre}</h5>
@@ -48,7 +48,7 @@ const mostrarLugares = () => {
               <p class="card-text">${lugar.estadoActual}</p>
               <p class="card-text">${lugar.tempActual}°C</p>
             </div>
-            <div class="card-body">
+            <div class="card-footer bg-transparent border-top-0">
               <a class="card-link" href="/detalle.html?id=${
                 lugar.id
               }">Ver detalle</a>

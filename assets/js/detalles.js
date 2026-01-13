@@ -11,11 +11,6 @@ links.forEach(function (link) {
   }
 });
 
-// Array de lugares: contendrá listado de ciudades
-/*
-id, nombre del lugar, temeratura actual, estado actual, pronostico semanal (array de objetos)
-*/
-
 // Para agregar ícono dinámicamente dependiendo del estado del clima
 const ICONOS = {
   Soleado: "bi-brightness-high",
@@ -29,7 +24,6 @@ const urlParams = new URLSearchParams(window.location.search);
 
 // Extraer id de los parametros
 const locationId = urlParams.get("id");
-
 // console.log(locationId);
 
 // 2. Filtrar lugar del array a partir del ID
@@ -80,14 +74,14 @@ const mostrarLugar = () => {
             </div>
           </div>`;
 
-  lugarContainer.innerHTML = content;
+  lugarContainer.innerHTML += content;
 };
 
 mostrarLugar();
 
 // Mostrar sección pronóstico semanal
 const pronosticoContainer = document.getElementById("pronosticoSemanal");
-console.log(ciudadActual.pronosticoSemanal);
+// console.log(ciudadActual.pronosticoSemanal);
 
 ciudadActual.pronosticoSemanal.forEach((dia) => {
   const content = `
@@ -102,19 +96,55 @@ ciudadActual.pronosticoSemanal.forEach((dia) => {
 });
 
 // Estadisticas de la semana (mínimas y máximas)
-// 3. Estadísticas semanales y reunir datos
+// 5. Estadísticas semanales y reunir datos
+
+// 5.1 Capturar elementis de la tabla (td -> table datacell)
 const minTempContainer = document.getElementById("minTemp");
 const maxTempContainer = document.getElementById("maxTemp");
 const avTempContainer = document.getElementById("avTemp");
 
-// Funcion para formatear numero decimales, que envez de punto tenga coma
+// Función para formatear número decimales, que en vez de punto tengan coma
 const FormatFloatNumber = (num) => {
   return num.toLocaleString("es-CL");
 };
 
-// 5.2.1 Funcion para calcular estadísticas, devolverá un objeto con los resultados.
+const definirEstadisticasPredominante = (conteoEstados) => {
+  let estadoPredominante;
+
+  if (
+    conteoEstados.Soleado > conteoEstados.Nublado &&
+    conteoEstados.Soleado > conteoEstados.Lluvioso &&
+    conteoEstados.Soleado > conteoEstados["Parcialmente nublado"]
+  ) {
+    estadoPredominante = "soleado";
+  } else if (
+    conteoEstados.Nublado > conteoEstados.Soleado &&
+    conteoEstados.Nublado > conteoEstados.Lluvioso &&
+    conteoEstados.Nublado > conteoEstados["Parcialmente nublado"]
+  ) {
+    estadoPredominante = "Nublado";
+  } else if (
+    conteoEstados.Lluvioso > conteoEstados.Soleado &&
+    conteoEstados.Lluvioso > conteoEstados.Nublado &&
+    conteoEstados.Lluvioso > conteoEstados["Parcialmente nublado"]
+  ) {
+    estadoPredominante = "Lluvioso";
+  } else if (
+    conteoEstados["Parcialmente nublado"] > conteoEstados.Soleado &&
+    conteoEstados["Parcialmente nublado"] > conteoEstados.Nublado &&
+    conteoEstados["Parcialmente nublado"] > conteoEstados.Lluvioso
+  ) {
+    estadoPredominante = "Parcialmente Nublado";
+  } else {
+    estadoPredominante = "variado";
+  }
+
+  return estadoPredominante;
+};
+
+// 5.2 Funcion para calcular estadísticas, devolverá un objeto con los resultados.
 const estadisticasPronostico = () => {
-  // Obtener temperatura minima semanal
+  // 5.2.1 Obtener temperatura mínima semanal
   const temperaturasMinimas = ciudadActual.pronosticoSemanal.map(
     (dia) => dia.min
   );
@@ -141,15 +171,56 @@ const estadisticasPronostico = () => {
   );
 
   // TODO: Crear mensaje reseumen de las estadisticas: cantidad de dias por tipo de clima, resumen textual (semana mayormente Soleada, nublada, etc)
+  // 5.2.4 Calcular contedo de dias por estado del clima
+  const estadosSemanal = ciudadActual.pronosticoSemanal.map(
+    (dia) => dia.estado
+  );
+
+  // console.log(estadoSemanal);
+  const estadosUnicos = [...new set(estadosSemanal)];
+  // console.log(estadosUnicos);
+
+  const conteoEstados = {};
+
+  estadosUnicos.forEach((estado) => {
+    conteoEstados[estado] = ciudadActual.pronosticoSemanal.filter(
+      (dia) => dia.estado === estado
+    ).length;
+    // console.log(conteoEstados);
+  });
+
+  // 5.2.5 Determinar estado predominante de la semana (el más frecuente) de la semana
+  const estadoPredominante = definirEstadoPredominante(conteoEstados);
 
   return {
     minimaSemanal,
     maximaSemanal,
     promedioSemanal: FormatFloatNumber(promedioSemanal),
+    conteoEstados,
+    estadoPredominante,
   };
 };
 
 const estadisticas = estadisticasPronostico();
+
 minTempContainer.textContent = estadisticas.minimaSemanal;
 maxTempContainer.textContent = estadisticas.maximaSemanal;
 avTempContainer.textContent = estadisticas.promedioSemanal;
+
+console.log(estadisticas);
+
+// 5.2.6 Crear resumen textual
+const generarMensajeResumen = (estado, tempmax, tempmin) => {
+  return `Semana con clima mayormente ${estado}. La temperatura máxima de la semana fue ${tempmax}°C, La minima de ${tempmin}°C.`;
+};
+
+const mensajeResumen = generarMensajeResumen(
+  estadisticas.estadoPredominante,
+  estadisticas.maximaSemanal,
+  estadisticas.minimaSemanal
+);
+console.log(mensajeResumen);
+
+const containerMensajeResumen = document.getElementById("resumen");
+
+containerMensajeResumen.innerHTML = `<p class="text-muted">${mensajeResumen}</p>`;
