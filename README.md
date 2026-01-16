@@ -1,72 +1,22 @@
-gg# Proyeco de portafolio modulo 2
+# Proyeco de portafolio Módulo 4 - Elizabeth Vergara
 
-=======
+## Requisitos técnicos
 
-# Proyeco de portafolio modulo 2 - Elizabeth Vergara
+### Modelado de datos
 
-1. Propósito
-   Desarrollar la primera versión (MVP) del frontend de una aplicación de clima, aplicando **HTML5 semántico**,
-   **Bootstrap** para estilos y **diseño responsivo**, y **JavaScript** básico para la interacción. El
-   trabajo se versiona en **Git/GitHub** e incluye un **README** descriptivo.
+- [x] Definir en JavaScript un arreglo de lugares donde cada lugar sea un objeto con al menos:
+- [x] id, nombre, tempActual, estadoActual
+- [x] pronosticoSemanal: arreglo de objetos (cada objeto será un día de la semana) con dia, min, max y estado
 
---
+### Variables, condicionales, ciclos y funciones
 
-## Aplicacion del tiempo
-
-al hacer click en la localidad, te mostrará el detalle del tiempo actual y el de toda la semana.
-
-## Requisitos Funcionales
-
-- Ejempo de uso de JS 1:
-
-```js
-cardLinks.forEach(function (link) {
-  link.addEventListener("click", function () {
-    window.location.href = "./detalle.html";
-  });
-});
-```
-
-- Ejemplo de us de JS 2: modificando claes dependiendo de la ubicación:
-
-```js
-links.forEach(function (link) {
-  if (link.href == window.location.href) {
-    link.classList.add("active");
-  } else {
-    link.classList.remove("active");
-  }
-});
-```
-
-## Segunda etapa del proyecto
-
-- Se aplicó Sass intregrando la estructura básica de carpetas con sus archivos correspondientes.
-
-1. Abstracts
-
-- \_mixins.scss
-- \_variables.scss
-
-2. Base
-
-- \_base.scss
-
-3. Components
-
-- \_card.scss
-- \_carousel.scss
-
-4. layout
-
-- \_footer.scss
-- \_main.scss
-- \_navbar.sccs
-
-5. Pages
-6. Themes
-7. Vendors
-
-## GitHub enlace
-
-https://github.com/vergaraelizabeth02/weather-frontend-m2.git
+- [x] Utilizar variables y constantes para guardar datos intermedios (suma de temperaturas, contadores, etc.).
+- [x] Utilizar ciclos (for, while o similar) para recorrer el pronóstico semanal y:
+  - [x] Calcular mínimo, máximo y promedio:
+  - [x] Contar cuántos días hay de cada tipo de clima.
+- [x] Utilizar condicionales (if, else if, else) para:
+  - [x] Evaluar estados del tiempo (ej.: si hay más días soleados que nublados → “Semana mayormente soleada”).
+  - [x] Generar el resumen textual de la semana.
+- [x] Definir al menos dos funciones:
+  - [x] Una función para buscar y obtener el objeto lugar a partir de un id o nombre.
+  - [x] Una función para calcular estadísticas a partir del pronosticoSemanal de un lugar y devolver un objeto con los resultados.
